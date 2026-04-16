@@ -10,7 +10,7 @@ content:
     path: src/content/projects
     fields:
       - { name: id, label: ID, type: number }
-      - { name: name, label: Name, type: string, maxlength: 50 }
+      - { name: title, label: Title, type: string, maxlength: 50 }
       - name: category
         label: Category
         type: select
