@@ -1,30 +1,54 @@
 ---
 const pathname = Astro.url.pathname;
-// components
+const locale = Astro.currentLocale ?? 'es';
+const otherLocale = locale === 'es' ? 'en' : 'es';
+
+// Sustituye el prefijo de idioma en la URL actual
+const otherPath = pathname.replace(`/${locale}/`, `/${otherLocale}/`);
+
 import Link from "../elements/Link.astro"
 
-// content
-const nav = [
-    { title: "/principal", href: "/" },
-    { title: "/proyectos", href: "/projects" },
-    { title: "/sobre-mi", href: "/about" },
-    { title: "/blog", href: "/blog" },
-    { title: "/contacto", href: "/contact" },
-]
+const nav = {
+  es: [
+    { title: "/principal",  href: `/${locale}/` },
+    { title: "/proyectos",  href: `/${locale}/projects` },
+    { title: "/sobre-mi",   href: `/${locale}/about` },
+    { title: "/blog",       href: `/${locale}/blog` },
+    { title: "/contacto",   href: `/${locale}/contact` },
+  ],
+  en: [
+    { title: "/home",       href: `/${locale}/` },
+    { title: "/projects",   href: `/${locale}/projects` },
+    { title: "/about",      href: `/${locale}/about` },
+    { title: "/writing",    href: `/${locale}/blog` },
+    { title: "/contact",    href: `/${locale}/contact` },
+  ]
+}
+
+const links = nav[locale as 'es'|'en'] ?? nav['es'];
 ---
 
 <nav class="bg-base-900 flex flex-row flex-wrap sticky top-0">
     {
-        nav.map((navLink) => {
-            const isActive = navLink.href === "/" ? pathname === "/" : pathname.startsWith(navLink.href);
-        return (
-            <Link
-                variant={'nav'} 
-                href={navLink.href}
-                text={navLink.title}
-                aria-current={isActive ? "page" : undefined}
-                class={isActive ? "bg-base-950 border-t-2 border-base-900" : "" }
-            />
-        )})
+        links.map((navLink) => {
+            const isActive = navLink.href === `/${locale}/` ? pathname === `/${locale}/` : pathname.startsWith(navLink.href);
+            return (
+                <Link
+                    variant={'nav'} 
+                    href={navLink.href}
+                    text={navLink.title}
+                    aria-current={isActive ? "page" : undefined}
+                    class={isActive ? "bg-base-950 border-t-2 border-base-900" : ""}
+                />
+            )
+        })
     }
+    <!-- Switcher de idioma -->
+    <a
+        href={otherPath}
+        class="px-24 py-16 bg-base-900 hover:bg-base-800 text-base-400 hover:text-base-200 font-pixels text-20/5 ml-auto"
+        aria-label={locale === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+    >
+        {locale === 'es' ? '/en' : '/es'}
+    </a>
 </nav>
