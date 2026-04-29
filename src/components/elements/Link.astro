@@ -25,6 +25,4 @@ const variantStyle = {
     rel={newWindow ? "noopener noreferrer" : undefined}
     aria-label={newWindow ? `${Astro.slots.has('default') ? '' : href} (opens in new window)` : undefined} 
     {...rest}
->
-    {text}
-</a>
+>{text}</a>
