@@ -6,6 +6,10 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    //Cosas mias:
+    "optimize-og": "node optimize-og.mjs",
+    "prebuild": "node optimize-og.mjs",
+    //Cosas por defecto:
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
