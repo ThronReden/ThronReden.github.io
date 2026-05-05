@@ -29,7 +29,14 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@components': '/src/components',
+        '@layouts': '/src/layout',
+        '@assets': '/src/assets',
+      }
+    }
   },
   site: "https://ThronReden.github.io", // change to your domain
   integrations: [sitemap()]
