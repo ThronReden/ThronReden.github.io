@@ -2,12 +2,25 @@
 // components
 import Section from "@elements/Section.astro";
 import Text from "@elements/Text.astro";
+
+const locale = Astro.currentLocale ?? 'es';
+
+const content = {
+  es: {
+    title: "Introducción",
+    greeting: "¡Buenas!",
+    intro: "Soy Jorge Sánchez, estudiante de DAM y técnico de sonido...",
+  },
+  en: {
+    title: "Introduction",
+    greeting: "Hey there!",
+    intro: "I'm Jorge Sánchez, a DAM student and sound technician...",
+  }
+}
+
+const {title, greeting, intro } = content[locale as 'es'|'en'] ?? content['es'];
 ---
 
-<Section 
-    aria-label="Introduction"
-    title="Introduction"
-    titleHeading="Hey there!"
->
-    <Text variant={'normal'} class="text-base-400">Hi, I’m Andy Decker — a software engineer focused on building reliable, scalable systems that make complex things feel simple. I work full-stack across areas like payments, bridging, and distributed infrastructure, with a strong emphasis on testing, observability, and clear documentation to improve both speed and confidence in what I ship.</Text>
+<Section aria-label={title} title={title} titleHeading={greeting}>
+    <Text variant={'normal'} class="text-base-400">{intro}</Text>
 </Section>
