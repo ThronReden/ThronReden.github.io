@@ -1,5 +1,6 @@
 ---
 // components
+import Link from "@components/elements/Link.astro";
 import Section from "@elements/Section.astro";
 import Text from "@elements/Text.astro";
 
@@ -8,19 +9,25 @@ const locale = Astro.currentLocale ?? 'es';
 const content = {
   es: {
     title: "Introducción",
-    greeting: "¡Buenas!",
-    intro: "Soy Jorge Sánchez, estudiante de DAM y técnico de sonido...",
+    greeting: "¡Hola!",
+    intro: "Buenas, soy Jorge Sánchez - estudiante de Desarrollo de Aplicaciones Multiplataforma con una base arraigada en el pensamiento computacional que viene de lejos, crecí rodeado de tecnología. Trabajo principalmente en Java y tengo especial interés en las áreas de diseño de software y desarrollo de videojuegos, con foco en el backend. ",
+    linkTxt:  "¡Contacta conmigo!",
   },
   en: {
     title: "Introduction",
-    greeting: "Hey there!",
-    intro: "I'm Jorge Sánchez, a DAM student and sound technician...",
+    greeting: "Hello there!",
+    intro: "Hi, I'm Jorge Sánchez — a Cross-platform App Development student with a deep-rooted background in computational thinking that goes way back, I was brought up surrounded by technology. I mainly work in Java and am particularly interested in software design and game development, with a focus on backend. ",
+    linkTxt:  "Let's work together!",
   }
 }
 
-const {title, greeting, intro } = content[locale as 'es'|'en'] ?? content['es'];
+const {title, greeting, intro, linkTxt} = content[locale as 'es'|'en'] ?? content['es'];
 ---
 
 <Section aria-label={title} title={title} titleHeading={greeting}>
-    <Text variant={'normal'} class="text-base-400">{intro}</Text>
+    <Text variant={'normal'} class="text-base-400">{intro}
+        <span class="whitespace-nowrap">        
+            <Link variant={'inline'} href={`/${locale}/contact`} text={linkTxt} />
+        </span>
+    </Text>
 </Section>
