@@ -17,7 +17,7 @@
     --color-base-600: oklch(0.470 0.294 19.01);
     --color-base-700: oklch(0.400 0.294 19.01);
     --color-base-800: oklch(0.330 0.294 19.01);
-    --color-base-900: oklch(0.216 0.118 19.01);
+    --color-base-900: oklch(0.216 0.118 142.4);
     --color-base-950: oklch(0.100 0.118 142.4);
 
     /* TEXT SIZES */
@@ -55,7 +55,7 @@
     --spacing-4: 0.25rem;
 
     /* DROP SHADOW */
-    --drop-shadow-md: 0 0px 5px oklch(0.330 0.176 132.8); 
+    --drop-shadow-md: 0 0px 5px oklch(0.330 0.176 9); 
 
     /* BREAKPOINTS */
     --breakpoint-xsm: 320px;
