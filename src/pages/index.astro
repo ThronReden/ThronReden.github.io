@@ -1,3 +1,20 @@
 ---
-return Astro.redirect('/es/',301);
+// No server-side redirect — handled by JS below for instant redirect on static hosting
 ---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jorge Sánchez</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        background-color: oklch(0.100 0.118 142.4);
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <script>window.location.replace('/es/');</script>
+  </head>
+  <body></body>
+</html>
