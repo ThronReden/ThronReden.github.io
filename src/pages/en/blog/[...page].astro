@@ -14,7 +14,9 @@ import Pagination from "@components/elements/Pagination.astro";
 import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 export const getStaticPaths = (async ({paginate}) => {
-    const blog = await getCollection("blog");
+    const blog = await getCollection("blog",
+        ({data}) => data.lang === 'en'
+    );
     const blogWithReadingTime = blog.map((article) => ({
         ...article,
         readingTime: getReadingTime(article.body ?? "")
@@ -24,9 +26,6 @@ export const getStaticPaths = (async ({paginate}) => {
 
 // props
 const { page } = Astro.props;
-
-// localization
-const locale = Astro.currentLocale ?? 'es';
 ---
 
 <Layout
@@ -47,7 +46,6 @@ const locale = Astro.currentLocale ?? 'es';
                     slug={article.data.slug}
                     category={article.data.category}
                     readingTime={article.readingTime}
-                    locale={locale}
                 />
             ))
         }

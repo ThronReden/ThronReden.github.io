@@ -1,7 +1,8 @@
 ---
 id: 2
 lang: en
-slug: "what-ai-experiments-taught-me"
+slug: "learning-astro-with-claude"
+translationSlug: "aprendiendo-astro-con-claude"
 title: "What AI experiments taught me"
 publishedDate: 2026-01-17
 category: "ai"

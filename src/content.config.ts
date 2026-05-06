@@ -26,6 +26,7 @@ const blog = defineCollection({
         id: z.number(),
         lang: z.enum(['es','en']),
         slug: z.string().max(50),
+        translationSlug: z.string().max(50).optional(),
         title: z.string().max(50),
         publishedDate: z.date(),
         category: z.enum(["systems", "ai", "productivity"]), // change and add blog categories here
