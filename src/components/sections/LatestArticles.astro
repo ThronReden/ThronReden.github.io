@@ -15,8 +15,8 @@ const recentArticles = blog
   .filter(article => article.data.lang === locale)
   .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime())
   .slice(0, 3)
-  .map((article) => ({
-    ...article,
+  .map((article) =>
+  ({...article,
     readingTime: getReadingTime(article.body ?? "")
 }));
 
@@ -36,19 +36,20 @@ const {title, description} = content[locale as 'es'|'en'] ?? content['es'];
 ---
 
 <Section 
-    aria-label={title}
-    title={title}
-    titleHeading={description}
+  aria-label={title}
+  title={title}
+  titleHeading={description}
 >
-    {
-        recentArticles.map((article) => (
-            <ArticleCard
-                title={article.data.title}
-                publishedDate={article.data.publishedDate}
-                slug={article.data.slug}
-                category={article.data.category}
-                readingTime={article.readingTime}
-            />
-        ))
-    }
+  {
+    recentArticles.map((article) => (
+      <ArticleCard
+        title={article.data.title}
+        publishedDate={article.data.publishedDate}
+        slug={article.data.slug}
+        category={article.data.category}
+        readingTime={article.readingTime}
+        locale={locale}
+      />
+    ))
+  }
 </Section>

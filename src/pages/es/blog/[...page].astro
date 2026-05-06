@@ -24,6 +24,9 @@ export const getStaticPaths = (async ({paginate}) => {
 
 // props
 const { page } = Astro.props;
+
+// localization
+const locale = Astro.currentLocale ?? 'es';
 ---
 
 <Layout
@@ -44,6 +47,7 @@ const { page } = Astro.props;
                     slug={article.data.slug}
                     category={article.data.category}
                     readingTime={article.readingTime}
+                    locale={locale}
                 />
             ))
         }
