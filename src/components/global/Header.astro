@@ -8,6 +8,8 @@ import Text from "@elements/Text.astro";
 import NavBar from "./NavBar.astro";
 import SocialLinks from "@elements/SocialLinks.astro";
 
+const { switcherHref } = Astro.props;
+
 const locale = Astro.currentLocale ?? 'es';
 
 const content = {
@@ -44,5 +46,5 @@ const { role, name, status, alt } = content[locale as 'es'|'en'] ?? content['es'
             </div>
         </div>
     </div>
-    <NavBar />
+    <NavBar switcherHref={switcherHref} />
 </header>

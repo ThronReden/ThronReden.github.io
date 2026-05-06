@@ -10,7 +10,7 @@ const projects = defineCollection({
         title: z.string().max(50),
         tools: z.preprocess(
             (val) => (Array.isArray(val) ? val : [val]),
-            z.array(z.enum(["TypeScript", "LIVE", "HTML", "JavaScript", "React Native", "Backend API", "Node.js", "Docker", "Tailwind"]))), // change categories here
+            z.array(z.enum(["TypeScript", "Git", "LIVE", "HTML", "Java", "Maven", "MySQL", "JavaScript", "React Native", "Backend API", "Node.js", "Docker", "Tailwind"]))), // change categories here
         year: z.string().max(4),
         liveSite: z.url().optional(),
         github: z.url().optional(),

@@ -3,8 +3,10 @@ const pathname = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'es';
 const otherLocale = locale === 'es' ? 'en' : 'es';
 
+const { switcherHref } = Astro.props;
+
 // Sustituye el prefijo de idioma en la URL actual
-const otherPath = pathname.replace(`/${locale}/`, `/${otherLocale}/`);
+const otherPath = switcherHref ?? pathname.replace(`/${locale}/`, `/${otherLocale}/`);
 
 import Link from "@elements/Link.astro"
 

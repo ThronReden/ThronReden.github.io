@@ -27,13 +27,16 @@ export const getStaticPaths = (async () => {
 // props
 const { article } = Astro.props;
 const { Content } = await render(article);
-const { title, category, publishedDate } = article.data;
+const { title, category, publishedDate, slug, translationSlug } = article.data;
+
+const switcherHref = translationSlug ? `/blog/${translationSlug}` : `/blog/${slug}`;
 ---
 
 <Layout
     title={title}
     description=""
     ogImage=""
+    switcherHref={switcherHref}
 >
     <Section
         title=`Published On: ${formatDate(publishedDate)}`
