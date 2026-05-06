@@ -24,10 +24,16 @@ const content = {
 const {title, greeting, intro, linkTxt} = content[locale as 'es'|'en'] ?? content['es'];
 ---
 
-<Section aria-label={title} title={title} titleHeading={greeting}>
+<Section 
+  aria-label={title}
+  title={title}
+  titleHeading={greeting}
+>
+  {
     <Text variant={'normal'} class="text-base-400">{intro}
         <span class="whitespace-nowrap">        
             <Link variant={'inline'} href={`/${locale}/contact`} text={linkTxt} />
         </span>
     </Text>
+  }
 </Section>

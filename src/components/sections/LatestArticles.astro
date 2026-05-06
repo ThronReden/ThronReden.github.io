@@ -6,32 +6,49 @@ import ArticleCard from "@elements/ArticleCard.astro";
 // utils
 import { getReadingTime } from "@utils/readingTime";
 
+const locale = Astro.currentLocale ?? 'es';
+
 // content collection
 import { getCollection } from "astro:content";
 const blog = await getCollection("blog");
 const recentArticles = blog
+  .filter(article => article.data.lang === locale)
   .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime())
   .slice(0, 3)
   .map((article) => ({
     ...article,
     readingTime: getReadingTime(article.body ?? "")
-  }));
+}));
+
+// localization
+const content = {
+  es: {
+    title: "Artículos Recientes",
+    description: "A veces me da por escribir",
+  },
+  en: {
+    title: "Latest Articles",
+    description: "What I've recently written",
+  }
+}
+
+const {title, description} = content[locale as 'es'|'en'] ?? content['es'];
 ---
 
 <Section 
-    aria-label="Latest Articles"
-    title="Latest Articles"
-    titleHeading="What I've recently wrote"
+    aria-label={title}
+    title={title}
+    titleHeading={description}
 >
     {
-            recentArticles.map((article) => (
-                <ArticleCard
-                    title={article.data.title}
-                    publishedDate={article.data.publishedDate}
-                    slug={article.data.slug}
-                    category={article.data.category}
-                    readingTime={article.readingTime}
-                />
-            ))
-        }
+        recentArticles.map((article) => (
+            <ArticleCard
+                title={article.data.title}
+                publishedDate={article.data.publishedDate}
+                slug={article.data.slug}
+                category={article.data.category}
+                readingTime={article.readingTime}
+            />
+        ))
+    }
 </Section>

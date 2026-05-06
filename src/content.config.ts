@@ -6,6 +6,7 @@ const projects = defineCollection({
     loader: glob({pattern: "src/content/projects/**/*.md"}),
     schema: z.object({
         id: z.number(),
+        lang: z.enum(['es','en']),
         title: z.string().max(50),
         tools: z.preprocess(
             (val) => (Array.isArray(val) ? val : [val]),
@@ -23,6 +24,7 @@ const blog = defineCollection({
     loader: glob({pattern: "src/content/blog/**/*.md"}),
     schema: z.object({
         id: z.number(),
+        lang: z.enum(['es','en']),
         slug: z.string().max(50),
         title: z.string().max(50),
         publishedDate: z.date(),

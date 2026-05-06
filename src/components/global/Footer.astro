@@ -10,10 +10,24 @@ import Link from "@elements/Link.astro"
 const {
     name = "Jorge Sánchez"
 } = Astro.props;
+
+// localization
+const locale = Astro.currentLocale ?? 'es';
+const content = {
+  es: {
+    text1: "Plantilla original de ",
+    text2: " por ",
+  },
+  en: {
+    text1: "Original template built with ",
+    text2: " by ",
+  }
+}
+
+const {text1, text2} = content[locale as 'es'|'en'] ?? content['es'];
 ---
 
 <footer class="flex flex-col gap-16 text-center text-base-600">
     <Text variant={'sm'}>{name} &copy; {currentYear()}</Text>
-    <Text variant={'sm'}>Plantilla original de <Link variant={'inline'} href="https://astro.build" text="Astro" newWindow/> por <Link variant={'inline'} href="https://jessgaspar.dev/themes" text="Jess Gaspar" newWindow/></Text>
-    // <Text variant={'sm'}>Built with  by <Link variant={'inline'} href="https://jessgaspar.dev/themes" text="Jess Gaspar" newWindow/></Text>
+    <Text variant={'sm'}>{text1}<Link variant={'inline'} href="https://astro.build" text="Astro" newWindow/> {text2} <Link variant={'inline'} href="https://jessgaspar.dev/themes" text="Jess Gaspar" newWindow/></Text>
 </footer>
