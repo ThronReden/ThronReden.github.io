@@ -24,12 +24,17 @@ export const getStaticPaths = (async () => {
     }))
 }) satisfies GetStaticPaths;
 
+// locale
+const locale = Astro.currentLocale ?? 'es';
+const otherLocale = locale === 'es' ? 'en' : 'es';
+
 // props
 const { article } = Astro.props;
 const { Content } = await render(article);
 const { title, category, publishedDate, slug, translationSlug } = article.data;
 
-const switcherHref = translationSlug ? `/blog/${translationSlug}` : `/blog/${slug}`;
+// lang switcher
+const switcherHref = translationSlug ? `/${otherLocale}/blog/${translationSlug}` : `/${locale}/blog/${slug}`;
 ---
 
 <Layout
