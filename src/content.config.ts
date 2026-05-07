@@ -14,7 +14,7 @@ const projects = defineCollection({
         year: z.string().max(4),
         liveSite: z.url().optional(),
         github: z.url().optional(),
-        description: z.string().max(350),
+        description: z.string().max(450),
         isFeatured: z.boolean(),
         isDraft: z.boolean()
     })

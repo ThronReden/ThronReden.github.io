@@ -15,7 +15,7 @@ import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 export const getStaticPaths = (async ({paginate}) => {
     const blog = await getCollection("blog",
-        ({data}) => data.lang === 'es'
+        ({data}) => data.lang === 'es' && !data.isDraft
     );
     const blogWithReadingTime = blog.map((article) => ({
         ...article,

@@ -12,7 +12,7 @@ const locale = Astro.currentLocale ?? 'es';
 import { getCollection } from "astro:content";
 const blog = await getCollection("blog");
 const recentArticles = blog
-  .filter(article => article.data.lang === locale)
+  .filter(article => article.data.lang === locale && !article.data.isDraft)
   .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime())
   .slice(0, 3)
   .map((article) =>
@@ -28,7 +28,7 @@ const content = {
   },
   en: {
     title: "Latest Articles",
-    description: "What I've recently written",
+    description: "Stuff I've recently written",
   }
 }
 

@@ -1,12 +1,11 @@
 ---
 id: 1
 lang: en
-title: "Fluxel"
-tools: ["TypeScript", "LIVE"]
-year: "2024"
-github: "https://github.com"
-liveSite: "https://astro.build"
-description: "Fluxel is a web tool for converting video into optimized image sequences, designed for high-performance animation workflows. Built with a focus on speed and developer ergonomics, it streamlines assets for modern frontend frameworks and motion libraries."
-isFeatured: false
-isDraft: true
+title: "SudokuKid"
+tools: ["Java", "Git"]
+year: "2025"
+github: "https://github.com/ThronReden/SudokuKid"
+description: "SudokuKid is an ongoing self-imposed learning-by-doing challenge — building a sudoku solver that tackles puzzles using human-like strategies rather than brute force. The app will eventually be able to both solve sudoku and verify whether they're solvable using a selected collection of solving methods; so you know if you should be able to crack it without spoiling the solution!"
+isFeatured: true
+isDraft: false
 ---

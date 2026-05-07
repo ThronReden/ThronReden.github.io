@@ -3,9 +3,9 @@ id: 1
 lang: es
 title: "SudokuKid"
 tools: ["Java", "Git"]
-year: "2026"
+year: "2025"
 github: "https://github.com/ThronReden/SudokuKid"
-description: "Fluxel is a web tool for converting video into optimized image sequences, designed for high-performance animation workflows. Built with a focus on speed and developer ergonomics, it streamlines assets for modern frontend frameworks and motion libraries."
+description: "SudokuKid es un desafío de aprendizaje personal que tiene como objetivo desarrollar un solucionador de sudokus que aborde los puzzles usando estrategias similares a las de un humano, no fuerza bruta. La app eventualmente podrá tanto resolver sudokus como verificar si son resolubles usando una colección de métodos seleccionados. ¡Así sabrás si deberías ser capaz de resolverlo sin hacerte spoiler de la solución!"
 isFeatured: true
-isDraft: true
+isDraft: false
 ---

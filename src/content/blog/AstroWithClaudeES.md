@@ -3,7 +3,7 @@ id: 2
 lang: es
 slug: "aprendiendo-astro-con-claude"
 translationSlug: "learning-astro-with-claude"
-title: "What AI experiments taught me"
+title: "Aprendiendo Astro con ayuda de la AI"
 publishedDate: 2026-01-17
 category: "ai"
 isDraft: true

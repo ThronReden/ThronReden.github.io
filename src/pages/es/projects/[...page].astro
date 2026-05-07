@@ -11,7 +11,8 @@ import Pagination from "@components/elements/Pagination.astro";
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 export const getStaticPaths = (async ({paginate}) => {
-    const projects = await getCollection("projects", ({data}) => !data.isDraft)
+    const projects = await getCollection("projects",
+        ({data}) => data.lang === 'es' && !data.isDraft)
     return paginate(projects, {pageSize: 6});
 }) satisfies GetStaticPaths;
 
@@ -20,13 +21,13 @@ const { page } = Astro.props;
 ---
 
 <Layout
-    title="All Projects"
-    description="All Projects for software engineer Andy Decker."
+    title="Todos Los Proyectos"
+    description="Todos mis proyectos por ahora."
     ogImage="" 
 >
     <Section
-        title="Projects"
-        titleHeading="Things I've built, broken and experimented with"
+        title="Proyectos"
+        titleHeading="Cosillas que he ido haciendo"
     >
     {
         page.data.map((project) => (
