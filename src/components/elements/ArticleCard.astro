@@ -10,6 +10,7 @@ import { formatDate } from "@utils/formatDate";
 // components
 import Text from "@elements/Text.astro";
 import Heading from "@elements/Heading.astro";
+import { locales } from "astro:schema";
 
 // locale
 const locale = Astro.currentLocale ?? 'es';
@@ -18,7 +19,7 @@ const locale = Astro.currentLocale ?? 'es';
 const { title, publishedDate, slug, category, readingTime} = Astro.props;
 
 const articleInfo = [
-    { icon: Calendar, text: formatDate(publishedDate) },
+    { icon: Calendar, text: formatDate(publishedDate, locale) },
     { icon: Tag, text: `#${category}` },
     { icon: Hourglass, text: `${readingTime} min read`}
 ];
