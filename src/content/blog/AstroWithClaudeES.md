@@ -4,7 +4,7 @@ lang: es
 slug: "aprendiendo-astro-con-claude"
 translationSlug: "learning-astro-with-claude"
 title: "Aprendiendo Astro con ayuda de la IA"
-publishedDate: 2026-01-17
+publishedDate: 2026-05-07
 category: "ai"
 isDraft: true
 ---
