@@ -6,13 +6,52 @@ translationSlug: "aprendiendo-astro-con-claude"
 title: "Learning Astro With A Bit Of Help"
 publishedDate: 2026-05-08
 category: "ai"
-isDraft: true
+isDraft: false
 ---
+import ChatLog from '@components/elements/ChatLog.astro';
+import Link from '@components/elements/Link.astro';
 
+## I Knew Nothing About Astro, JavaScript...
+As I looked into options for an environment to build this portfolio on I found 
+out about GitHub Pages and loved the idea of having this window into my work
+in the same site as the work itself. I began searching for guides on how to
+make that possible and found a <Link variant={'inline'} href="https://www.youtube.com/watch?v=v7HyyOnixJ8" text="video" newWindow />
+that caught my eye *(probably because the title claimed I'd be **"done in 5
+minutes"**, but I'm quite the perfectionist so that ended up not being at all
+accurate)*. The video contemplated the option of using *Astro* and a premade
+template, I thought that might be nice but I had a little big issue: **I'd have
+to learn both *Astro* and *JavaScript* completely from scratch!**
+### An Opportunity Surfaces
+*"I've got a knack for this stuff"*, I thought, *"There's no way it's that difficult, right?"*
+and went for it. But it wasn't long before the first issues became apparent:
+<ChatLog user1="me" user2="Claude" messages={[
+  { role: 'user1', text: 'I\'m getting this error: npm is not a recognizable name of cmdlet...' },
+  { role: 'user2', text: 'You don\'t have Node.js installed! — npm is included in Node. Download the LTS version from nodejs.org, install it, close and re-open the PowerShell.', code: `node --version\nnpm --version` },
+  { role: 'user1', text: 'it\'s already installed but I still get told I can\'t load npm.ps1 \'cause script execution is disabled' },
+  { role: 'user2', text: 'It\'s a Windows Security Policy. Open PowerShell as administrator and execute:', code: 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser' },
+]} />
+I was indeed missing a couple dependencies and, if it wasn't for Claude's help, it could have
+taken me ages to learn what is *Node*, what is *ps1*, how do *Windows Security Policies* work, etc, etc.
+And so I decided on using Claude as an advisor with issues I wasn't able to solve by
+myself *(or would have taken time out of what really mattered)* with the language,
+environment and template:
+<ChatLog user1="me" user2="Claude" messages={[
+    { role: 'user1', text: 'what\'s the color stored as theme_color for?' },
+    { role: 'user2', text: 'THEME_COLOR sets the nav bar color for mobile — the border of the page in Chrome for Android or Safari for iOS. The actual value, oklch(0.3272 0.1 19.01), is close to a dark red-ish brown. On desktop it has no visible effect.' },
+    { role: 'user1', text: 'if the actual green is 142.4 and it\'s shadow 132.8, what shadow tone would be equivalent for our burgundy 19.01?' },
+    { role: 'user2', text: 'The logic is the same — the shadow is offset to 10 degrees less than the main color. Main burgundy: 19.01 → shadow: 9 (same ~10 degree difference).', code: '--drop-shadow-md: 0 0px 5px oklch(0.330 0.176 9);' },
+    { role: 'user1', text: '...' }
+]} />
 ## And Now What?
 ### Do I Know JavaScript?
 **Not even close**, but it's not completely obscure to me anymore.
 ### Do I Know Astro?
-**Kind of**. It has a ton of features by nature so in this little time *(and probably in some more too)* there's no way to cover everything — but just like with *JS*, I get by with a handful of things and keep figuring out more as I go.
-### Do I Have a Cool Portfolio?
-**Yeah, and I'm quite happy with how it turned out!**. Happy enough that, beyond it being a good excuse to get familiar with *JavaScript*, I might actually keep it updated. *(Or at least I'll try — knowing me, no idea how long that'll last...)*
+**Kind of**. It has a ton of features by nature so in this little time
+*(and not even with a lot more time on top of that)* there's no way to cover
+everything — but just like with *JS*, I get by with a handful of things and
+keep figuring out more as I go.
+### Did I Create A Portfolio?
+**Yeah, and I'm quite happy with how it turned out!**. Happy enough that,
+beyond it being a good excuse to get familiar with *JavaScript*, I might
+actually keep it updated. *(Or at least I'll try — knowing me, no idea how
+long that'll last...)*
