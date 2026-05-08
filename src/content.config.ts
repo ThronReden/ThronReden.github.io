@@ -21,7 +21,7 @@ const projects = defineCollection({
 });
 
 const blog = defineCollection({
-    loader: glob({pattern: "src/content/blog/**/*.md"}),
+    loader: glob({pattern: "src/content/blog/**/*.{md,mdx}"}),
     schema: z.object({
         id: z.number(),
         lang: z.enum(['es','en']),

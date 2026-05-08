@@ -1,0 +1,62 @@
+---
+id: 2
+lang: es
+slug: "aprendiendo-astro-con-claude"
+translationSlug: "learning-astro-with-claude"
+title: "Aprendiendo Astro con ayuda de la IA"
+publishedDate: 2026-05-07
+category: "ai"
+isDraft: true
+---
+import ChatLog from '@components/elements/ChatLog.astro';
+import Link from '@components/elements/Link.astro';
+
+## Yo no sabía ni Astro, ni JavaScript, ni na´
+
+Cuando estaba investigando cómo hacer este portfolio web me encontré con la opción de
+hacerlo con GitHub Pages y me pareció buenísima idea. Me puse a buscar información,
+principalmente en forma de vídeos tutoriales y testimonios de gente que tiene su portfolio
+en GitHub también, para saber cómo enfocarlo y me encontré con un <Link variant={'inline'} href="https://www.youtube.com/watch?v=v7HyyOnixJ8" text="video" newWindow />
+cuyo título me llamó la atención *(igual porque decía algo así como **"en 5 minutos lo
+tienes"**, cosa que dado mi nivel de exigencia no ha sido cierta en absoluto)*.
+El video proponía utilizar *Astro*, lo que me pareció bastante interesante pero tenía una
+pequeña pega: **¡tenía que aprender *Astro* y algo de *JavaScript* completamente de cero!**
+
+### Aparece una oportunidad
+
+Pero bueno, sabiendo que tengo facilidad para estas cosas y buena base lógica me dije
+*"no puede ser muy dificil, ¿no?"* y tiré pa'lante. Pero enseguida surgieron los primeros
+problemas...
+<ChatLog user1="yo" user2="Claude" messages={[
+  { role: 'user1', text: 'Me da este error: npm no se reconoce como un nombre de cmdlet...' },
+  { role: 'user2', text: 'No tienes Node.js instalado — npm viene incluido con Node. Descarga la versión LTS en nodejs.org, instálala, cierra y vuelve a abrir PowerShell.', code: `node --version\nnpm --version` },
+  { role: 'user1', text: 'ya está instalado pero me dice que no puede cargar npm.ps1 porque la ejecución de scripts está deshabilitada' },
+  { role: 'user2', text: 'Es una política de seguridad de Windows. Abre PowerShell como administrador y ejecuta:', code: 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser' },
+]} />
+
+En efecto, me faltaban ciertas dependencias por instalar y si no hubiese sido por la ayuda de Claude
+tendría que haber utilizado mucho más tiempo en entender qué es *node*, qué es *ps1*, las políticas de
+seguridad del *PowerShell*, etc, etc. Y a partir de ahí empecé a consultarle todas las dudas que no
+era capaz de solucionar por mi cuenta tanto para con el lenguaje / entorno como con la
+plantilla:
+
+<ChatLog user1="yo" user2="Claude" messages={[
+  { role: 'user1', text: 'para qué es el color en theme_color' },
+  { role: 'user2', text: 'THEME_COLOR controla el color de la barra del navegador en móvil — esa franja que rodea la página en Chrome para Android o Safari en iOS. El valor que tienes oklch(0.3272 0.1 19.01) es un marrón/rojizo oscuro. En desktop no tiene ningún efecto visible, solo se nota en móvil.' },
+  { role: 'user1', text: 'y si nuestro verde es 142.4 y la sombra es 132.8, para nuestro granate 19.01 qué tono de sombra sería equivalente?' },
+  { role: 'user2', text: 'La lógica es la misma — la sombra está desplazada unos 10 grados menos que el color principal. Granate principal: 19.01 → sombra: 9 (misma diferencia de ~10).', code: '--drop-shadow-md: 0 0px 5px oklch(0.330 0.176 9);' },
+  { role: 'user1', text: 'tiene esto ultimo sentido con respecto a los intervalos de color con tonos oklch?' },
+  { role: 'user2', text: 'Buena pregunta. En la zona del rojo/granate (0-30), los colores cambian mucho más rápido que en el verde — 10° puede ser la diferencia entre un rojo puro y un naranja notable. Con oklch(0.330 0.176 9) la sombra sería un rojo oscuro perfectamente razonable. Si quieres afinar, en oklch.com puedes previsualizar exactamente el color antes de aplicarlo.' },
+]} />
+
+## ¿Y ahora qué?
+### ¿Sé JavaScript?
+**Ni de coña**, pero ya no es completamente desconocido para mí.
+### ¿Sé Astro?
+**Más o menos**. Tiene muchísimas funcionalidades por su naturaleza así que en este corto periodo
+de tiempo *(y en mucho más probablemente también)* es inabarcable pero, al igual que con *JS*,
+ahora me apaño con un puñado de cosas y partiendo de eso voy solucionando, entendiendo y aprendiendo.
+### ¿Tengo un Portfolio?
+**Sí, y bien majo**. Tan majo que más allá de que haya sido una buena excusa para familiarizarme
+un poco con *JavaScript* es posible que lo mantenga actualizado. *(O al menos lo intentaré, pero me conozco,
+no sé cuánto durará...)*

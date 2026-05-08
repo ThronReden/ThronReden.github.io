@@ -3,6 +3,8 @@ import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from "@astrojs/sitemap";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   fonts: [
@@ -43,5 +45,5 @@ export default defineConfig({
     }
   },
   site: "https://ThronReden.github.io", // change to your domain
-  integrations: [sitemap()]
+  integrations: [sitemap(), mdx()]
 });

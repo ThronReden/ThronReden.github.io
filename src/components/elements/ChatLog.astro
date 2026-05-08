@@ -1,0 +1,38 @@
+---
+interface Message {
+  role: "user1" | "user2";
+  text: string;
+  code?: string;
+}
+
+interface Props {
+  messages: Message[];
+  user1: string;
+  user2: string;
+}
+
+const { messages, user1, user2 } = Astro.props;
+---
+
+<div class="flex flex-col gap-8 my-16">
+  {
+    messages.map((msg) => (
+      <div class={`flex ${msg.role === "user1" ? "justify-end" : "justify-start"}`}>
+        <div class={`max-w-[80%] p-12 text-sm font-mono
+          ${msg.role === "user1"
+            ? "bg-base-900 text-base-200 border border-base-800"
+            : "bg-base-850 text-base-200 border border-base-700"
+          }`
+        }>
+          <span class="text-base-400 text-xs block mb-4">
+            {msg.role === "user1" ? `// ${user1}` : `// ${user2}`}
+          </span>
+          {msg.text}
+          {msg.code && (
+            <pre class="bg-base-950 px-40 py-8 mt-8 overflow-x-auto text-base-500 text-xs border border-base-800"><code>{msg.code}</code></pre>
+          )}
+        </div>
+      </div>
+    ))
+  }
+</div>
