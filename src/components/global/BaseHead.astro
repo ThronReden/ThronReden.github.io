@@ -14,7 +14,7 @@ const TITLE_TMPL   = "%s | Jorge Sánchez";
 const DEFAULT_OG   = "/images/og-default.webp";   // place in /public/images/
 const TWITTER_SITE = "@ThronReden";
 const THEME_COLOR  = "oklch(0.3272 0.1 19.01)";
-const LOCALE       = "es_ES";
+const LOCALE = Astro.currentLocale === 'es' ? 'es_ES' : 'en_US';
 
 // Layout accepts all SEO props + standard layout props
 export interface Props extends SEOProps {
