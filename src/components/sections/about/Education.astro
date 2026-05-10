@@ -23,7 +23,7 @@ const content = {
   }
 }
 
-const {title, heading} = content[locale as 'es'|'en'] ?? content['es'];
+const {title, heading} = content[locale] ?? content['es'];
 ---
 
 <Section 

@@ -4,17 +4,39 @@ import Section from "@elements/Section.astro";
 import Text from "@elements/Text.astro";
 import Link from "@elements/Link.astro";
 import SocialLinks from "@elements/SocialLinks.astro";
+
+// localization
+const locale = (Astro.currentLocale ?? 'es') as 'es'|'en';
+
+const content = {
+  es: {
+    title: "Contacto",
+    heading: "¿Hablamos?",
+    l1: "Si tienes una oportunidad que me podría interesar, quieres saber sobre alguno de mis proyectos o incluso si simplemente te apetece saludar,",
+    l2: "aquí tienes mi email: ",
+    l3: "También me puedes encontrar en cualquiera de estas redes",
+  },
+  en: {
+    title: "Contact",
+    heading: "Let's talk!",
+    l1: "Got an oportunity that might interest me, want to talk about any of my projets or simply want to say hi?",
+    l2: "Hit me up! here's my email: ",
+    l3: "You can also contact me through any of this socials",
+  }
+}
+
+const {title, heading, l1, l2, l3} = content[locale] ?? content['es'];
 ---
 
 <Section
-    aria-label="Contact"
-    title="Contact"
-    titleHeading="Let's connect!"
+    aria-label={title}
+    title={title}
+    titleHeading={heading}
 >
     <div class="flex flex-col gap-16 text-base-400">
-        <Text variant={'normal'}>Want to talk about something I’ve worked on, share an opportunity, or just say hello? I’d love to hear from you.</Text>
-        <Text variant={'normal'}>The fastest way to reach me is by email at <Link variant="inline" href="mailto:andydecker@email.com" text="andydecker@gmail.com" />.</Text>
-        <Text variant={'normal'}>You can also find me online or send a message through any of these platforms:</Text>    
+        <Text variant={'normal'}>{l1}</Text>
+        <Text variant={'normal'}>{l2} <Link variant="inline" href="mailto:jsanchezsantaliestra@email.com" text="jsanchezsantaliestra@gmail.com" />.</Text>
+        <Text variant={'normal'}>{l3}:</Text>    
     </div>
     
     <SocialLinks />
