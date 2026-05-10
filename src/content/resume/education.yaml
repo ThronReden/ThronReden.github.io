@@ -1,8 +1,25 @@
 - id: 1
-  title: BSc Computer Science
-  timeline: 2015 — 2018
-  school: University of Manchester
+  es:
+    title: Técnico Superior en Desarrollo de Aplicaciones Multiplataforma
+    timeline: 2025 — Actualidad
+  en:
+    title: Higher Technician Degree in Cross-platform App Development
+    timeline: 2025 — Present
+  school: La Salle Santo Ángel
+  schoolHref: https://lasallesantoangel.es/
 - id: 2
-  title: Foundations in Software Engineering
-  timeline: 2012 — 2015
-  school: Self-directed learning & online coursework
+  es:
+    title: Técnico Superior en Sonido para Audiovisuales y Espectáculos
+  en:
+    title: Higher Technician Degree in Sound for Audiovisual Productions and Live Shows
+  school: CPA Salduie
+  schoolHref: https://cpaformacion.com/
+  timeline: 2021 — 2023
+- id: 3
+  es:
+    title: Bachillerato Tecnológico
+  en:
+    title: Technology Oriented Secondary Education
+  school: La Salle Gran Vía
+  schoolHref: https://lasallegranvia.es/
+  timeline: 2019 — 2021

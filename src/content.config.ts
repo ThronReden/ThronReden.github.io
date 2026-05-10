@@ -44,12 +44,20 @@ const experience = defineCollection({
     })
 })
 
+const localeContentEducation = z.object({
+  title: z.string().max(200),
+  school: z.string().max(70).optional(),
+  timeline: z.string().max(20).optional()
+})
+
 const education = defineCollection({
     loader: file("src/content/resume/education.yaml"),
     schema: z.object({
-        title: z.string().max(70),
-        timeline: z.string().max(15),
-        school: z.string().max(70)
+        school: z.string().max(70).optional(),
+        timeline: z.string().max(20).optional(),
+        es: localeContentEducation,
+        en: localeContentEducation,
+        schoolHref: z.url().optional()
     })
 })
 

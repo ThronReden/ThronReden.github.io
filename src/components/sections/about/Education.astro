@@ -6,21 +6,39 @@ import EducationCard from "@elements/EducationCard.astro";
 
 // content collection
 import { getCollection } from "astro:content";
+import { locales } from "astro:schema";
 const education = await getCollection("education");
+
+// localization
+const locale = (Astro.currentLocale ?? 'es') as 'es'|'en';
+
+const content = {
+  es: {
+    title: "Estudios",
+    heading: "Mis estudios",
+  },
+  en: {
+    title: "Education",
+    heading: "My education",
+  }
+}
+
+const {title, heading} = content[locale as 'es'|'en'] ?? content['es'];
 ---
 
 <Section 
-    aria-label="Education"
-    title="Education"
-    titleHeading="My studies"
+    aria-label={title}
+    title={title}
+    titleHeading={heading}
 >
     {
-            education.map((entry) => (
-                <EducationCard 
-                    title={entry.data.title}
-                    timeline={entry.data.timeline}
-                    school={entry.data.school}
-                />
-            ))
-        }
+        education.map((entry) => (
+            <EducationCard 
+                title={entry.data[locale].title}
+                timeline={entry.data[locale].timeline ?? entry.data.timeline}
+                school={entry.data[locale].school ?? entry.data.school}
+                schoolHref={entry.data.schoolHref}
+            />
+        ))
+    }
 </Section>

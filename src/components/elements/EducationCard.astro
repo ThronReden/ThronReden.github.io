@@ -5,9 +5,10 @@ import School from "@assets/icons/School.astro";
 
 // components
 import Text from "@elements/Text.astro";
+import Link from "@elements/Link.astro";
 import Heading from "@elements/Heading.astro";
 
-const { title, timeline, school } = Astro.props;
+const { title, timeline, school , schoolHref} = Astro.props;
 
 ---
 
@@ -21,7 +22,11 @@ const { title, timeline, school } = Astro.props;
         </div>
         <div class="flex flex-row gap-8 text-base-100 items-center">
             <School width={20} height={20} fill="currentColor" />
-            <Text variant={'sm'} class="text-base-500">{school}</Text>
+            {schoolHref ?
+                <Text variant={'sm'} class="text-base-500"><Link variant={'inline'} href={schoolHref} text={school} newWindow /></Text>
+                : <Text variant={'sm'} class="text-base-500">{school}</Text>
+            }
+            
         </div>
     </div>
 </div>
