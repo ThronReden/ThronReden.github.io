@@ -19,9 +19,9 @@ const content = {
   en: {
     title: "Contact",
     heading: "Let's talk!",
-    l1: "Got an oportunity that might interest me, want to talk about any of my projets or simply want to say hi?",
-    l2: "Hit me up! here's my email: ",
-    l3: "You can also contact me through any of this socials",
+    l1: "Got an opportunity that might interest me, want to talk about any of my projects or simply want to say hi?",
+    l2: "Hit me up! — here's my email: ",
+    l3: "You can also find me on any of these socials",
   }
 }
 
@@ -36,8 +36,9 @@ const {title, heading, l1, l2, l3} = content[locale] ?? content['es'];
     <div class="flex flex-col gap-16 text-base-400">
         <Text variant={'normal'}>{l1}</Text>
         <Text variant={'normal'}>{l2} <Link variant="inline" href="mailto:jsanchezsantaliestra@email.com" text="jsanchezsantaliestra@gmail.com" />.</Text>
-        <Text variant={'normal'}>{l3}:</Text>    
+        <div class="flex flex-row gap-16 items-center">
+            <Text variant={'normal'}>{l3}:</Text>
+            <SocialLinks />
+        </div> 
     </div>
-    
-    <SocialLinks />
 </Section>
