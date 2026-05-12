@@ -1,6 +1,6 @@
 - id: 1
   es:
-    title: Herramientas de Desarrollo — Nivel Avanzado
+    title: Tecnologías de Desarrollo — Nivel Avanzado
   en:
     title: Dev Stack — Advanced
   items:
@@ -13,15 +13,17 @@
       - CSS
 - id: 2
   es:
-    title: Herramientas de Desarrollo — Nivel Básico
+    title: Tecnologías de Desarrollo — Nivel Básico
   en:
-    title: Dev Tools — Basic
+    title: Dev Stack — Basic
   items:
     common:
       - Maven
       - C#
       - NUnit
       - JavaScript
+      - Debian / Linux
+      - VirtualBox
 - id: 3
   es:
     title: Habilidades de Desarrollo
