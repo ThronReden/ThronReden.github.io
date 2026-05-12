@@ -7,19 +7,35 @@ import ExperienceCard from "@elements/ExperienceCard.astro";
 // content collection
 import { getCollection } from "astro:content";
 const experience = await getCollection("experience");
+
+// localization
+const locale = (Astro.currentLocale ?? 'es') as 'es'|'en';
+
+const content = {
+  es: {
+    title: "Experiencia",
+    heading: "Dónde he trabajado",
+  },
+  en: {
+    title: "Experience",
+    heading: "Where I've worked",
+  }
+}
+
+const {title, heading} = content[locale] ?? content['es'];
 ---
 
 <Section 
-    aria-label="Experience"
-    title="Experience"
-    titleHeading="Where I've worked"
+    aria-label={title}
+    title={title}
+    titleHeading={heading}
 >
     {
             experience.map((entry) => (
                 <ExperienceCard 
-                    title={entry.data.title}
-                    timeline={entry.data.timeline}
-                    description={entry.data.description}
+                    title={entry.data[locale].title}
+                    timeline={entry.data[locale].timeline?? entry.data.timeline}
+                    description={entry.data[locale].description}
                 />
             ))
         }

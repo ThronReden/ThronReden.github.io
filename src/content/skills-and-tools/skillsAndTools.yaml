@@ -1,19 +1,46 @@
 - id: 1
-  title: Tools
+  es:
+    title: Herramientas de Desarrollo — Nivel Avanzado
+  en:
+    title: Dev Stack — Advanced
   items:
-    - Go
-    - Python
-    - TypeScript
-    - SQL
-    - AWS
-    - Docker
-    - PostgreSQL
+    common:
+      - Java
+      - Git
+      - GitHub
+      - MySQL
+      - HTML
+      - CSS
 - id: 2
-  title: Skills
+  es:
+    title: Herramientas de Desarrollo — Nivel Básico
+  en:
+    title: Dev Tools — Basic
   items:
-    - Distributed Systems
-    - REST/gRPC APIs
-    - Scalability
-    - Unit/integration/E2E testing
-    - Ethereum, EVM, smart contracts
-    - Code reviews, documentation
+    common:
+      - Maven
+      - C#
+      - NUnit
+      - JavaScript
+- id: 3
+  es:
+    title: Habilidades de Desarrollo
+  en:
+    title: Dev Skills
+  items:
+    es:
+      - POO
+      - Tests unitarios
+      - UML / Diagramas
+      - Documentación clara
+      - Revisión de código
+      - Diseño de algoritmos
+      - Estructuras de datos básicas
+    en:
+      - OOP
+      - Unit testing
+      - UML / Diagrams
+      - Code reviews
+      - Clear documentation
+      - Algorithm design
+      - Basic data structures

@@ -1,6 +1,7 @@
 import { glob, file } from 'astro/loaders';
 import { defineCollection } from 'astro/content/config';
 import { z } from 'astro/zod'
+import { string } from 'astro:schema';
 
 const projects = defineCollection({
     loader: glob({pattern: "src/content/projects/**/*.md"}),
@@ -35,19 +36,25 @@ const blog = defineCollection({
     })
 })
 
+const localeContentExperience = z.object({
+    title: z.string().max(100),
+    description: z.string().max(500),
+    timeline: z.string().max(50).optional()
+})
+
 const experience = defineCollection({
     loader: file("src/content/resume/experience.yaml"),
     schema: z.object({
-        title: z.string().max(70),
-        timeline: z.string().max(15),
-        description: z.string().max(500)
+        timeline: z.string().max(50).optional(),
+        es: localeContentExperience,
+        en: localeContentExperience
     })
 })
 
 const localeContentEducation = z.object({
-  title: z.string().max(200),
-  school: z.string().max(100).optional(),
-  timeline: z.string().max(20).optional()
+    title: z.string().max(200),
+    school: z.string().max(100).optional(),
+    timeline: z.string().max(20).optional()
 })
 
 const education = defineCollection({
@@ -61,11 +68,24 @@ const education = defineCollection({
     })
 })
 
+const localeContentSkillsAndTools = z.object({
+    title: z.string().max(70)
+})
+
+const localeItemsSkillsAndTools = z.object({
+    
+})
+
 const skillsAndTools = defineCollection({
     loader: file("src/content/skills-and-tools/skillsAndTools.yaml"),
     schema: z.object({
-        title: z.string().max(70),
-        items: z.array(z.string())
+        es: localeContentSkillsAndTools,
+        en: localeContentSkillsAndTools,
+        items: z.object({
+            common: z.array(z.string()).optional(),
+            es: z.array(z.string()).optional(),
+            en: z.array(z.string()).optional()
+        })
     })
 })
 
