@@ -46,3 +46,17 @@
       - Clear documentation
       - Algorithm design
       - Basic data structures
+- id: 4
+  es:
+    title: Idiomas y Carnet de Conducir
+  en:
+    title: Languages & Driver's Licence
+  items:
+    es:
+      - Inglés — B2 Oxford
+      - Español — Nativo
+      - Permiso B de coche
+    en:
+      - English — B2 Oxford
+      - Spanish — Native
+      - Spanish Category B driving licence
