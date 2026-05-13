@@ -1,1 +1,1 @@
-## WEB PORTFOLIO BASED ON THE ASTRO TEMPLATE BY JESS GASPAR: [(original page repo)](https://github.com/jessgaspardev/decker)
+## WEB PORTFOLIO BASED ON THE ASTRO TEMPLATE BY JESS GASPAR: [(original repo)](https://github.com/jessgaspardev/decker)
